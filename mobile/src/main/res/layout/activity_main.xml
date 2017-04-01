@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pitonneux.les_pitonneux.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/title_image" />
+
+    <TextView
+        android:id="@+id/les_pitonneux_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:padding="16dp"
+        android:text="$ les_pitonneux█"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/description_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/les_pitonneux_text_view"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif"
+        android:text="Montreal's talent incubator"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="italic" />
+
+    <!-- android:background="@drawable/test_button_color" -->
+    <Button
+        android:id="@+id/learn_to_code_btn"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="Learn to code" />
+
+
+    <Button
+        android:id="@+id/organizers_btn"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/learn_to_code_btn"
+        android:layout_centerHorizontal="true"
+        android:text="organizers" />
+
+    <Button
+        android:id="@+id/start_up_btn"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/organizers_btn"
+
+        android:layout_centerHorizontal="true"
+        android:text="start up" />
+
+    <Button
+        android:id="@+id/projects_btn"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_up_btn"
+        android:layout_centerHorizontal="true"
+        android:text="projects" />
+
+    <Button
+        android:id="@+id/repairs_btn"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/projects_btn"
+        android:layout_centerHorizontal="true"
+        android:text="repairs" />
+
+
+    <Button
+        android:id="@+id/about_btn"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/repairs_btn"
+        android:layout_centerHorizontal="true"
+        android:text="about" />
+
+
+    <Switch
+        android:id="@+id/switch_language_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Francais"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>
