@@ -10,9 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/title_image" />
+        android:src="@drawable/title_image"
+        android:tint="@color/lesPitonneuxTintBlack" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/pitonneux_logo"
+        android:layout_width="300dp"
+        android:layout_height="140dp"
+        android:src="@drawable/logo_vert_fond_transparent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"/>
+
+
+   <!-- <TextView
         android:id="@+id/les_pitonneux_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,13 +33,15 @@
         android:padding="16dp"
         android:text="$ les_pitonneux█"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="35sp" />
+        android:textSize="35sp" />-->
+
+    <!--android:layout_below="@+id/les_pitonneux_text_view"-->
 
     <TextView
         android:id="@+id/description_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/les_pitonneux_text_view"
+        android:layout_below="@+id/pitonneux_logo"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif"
         android:text="Montreal's talent incubator"
@@ -45,7 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-        android:text="Learn to code" />
+        android:text="Build/learn/Teach"
+        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
 
     <Button
@@ -55,26 +68,26 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/learn_to_code_btn"
         android:layout_centerHorizontal="true"
-        android:text="organizers" />
+        android:text="organizers"
+        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
     <Button
         android:id="@+id/start_up_btn"
-
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/organizers_btn"
-
         android:layout_centerHorizontal="true"
-        android:text="start up" />
+        android:text="start up"
+        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
     <Button
         android:id="@+id/projects_btn"
-
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/start_up_btn"
         android:layout_centerHorizontal="true"
-        android:text="projects" />
+        android:text="projects"
+        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
     <Button
         android:id="@+id/repairs_btn"
@@ -83,7 +96,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/projects_btn"
         android:layout_centerHorizontal="true"
-        android:text="repairs" />
+        android:text="repairs"
+        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
 
     <Button
@@ -93,7 +107,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/repairs_btn"
         android:layout_centerHorizontal="true"
-        android:text="about" />
+        android:text="about"
+        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
 
     <Switch

@@ -3,4 +3,34 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+
+
+
+
+    <!--added custom color-->
+
+
+    <!--<color name="custom_light_blue">#56abe8</color>-->
+    <!--<color name="custom_dark_blue">#1d4970</color>-->
+    <!--<color name="custom_light_grey">#d7dbd8</color>-->
+
+    <color name="custom_light_blue">#a856abe8</color>
+    <color name="custom_dark_blue">#a81d4970</color>
+    <color name="custom_light_grey">#73d7dbd8</color>
+
+
+    <color name="lesPitonneuxPurple">#830099</color>
+
+    <color name="lesPitonneuxDarkPurple">#4A148C</color>
+    <color name="lesPitonneuxTransparentPurple">#e18e24aa</color>
+
+    <color name="lesPitonneuxPurpleLight">#8e24aa</color>
+
+    <color name="lesPitonneuxTintPurple">#324a148c</color>
+    <color name="lesPitonneuxTransparentBlack">#73000000</color>
+    <color name="lesPitonneuxTintBlack">#28000000</color>
+
 </resources>

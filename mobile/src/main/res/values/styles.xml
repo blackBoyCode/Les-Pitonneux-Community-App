@@ -6,6 +6,44 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/custom_light_blue</item>
     </style>
 
+
+
+
+    <style name="LesPitonneuxTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/holo_purple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--textColorPrimary set the text color for the hole app-->
+        <item name="android:textColorPrimary">@android:color/holo_green_light</item>
+        <item name="colorButtonNormal">@color/custom_light_grey</item>
+        <item name="colorControlHighlight">@color/lesPitonneuxTransparentPurple</item>
+       <!-- <item name="buttonStyle">@style/lesPitonneuxButtonStyle</item>-->
+
+    </style>
+
+
+    <style name="lesPitonneuxButtonStyle" parent="Widget.AppCompat.Button">
+
+        <item name="buttonTint">@color/wallet_holo_blue_light</item>
+
+
+    </style>
+
+
+    <!-- testStyleTheme -->
+    <!--<style name="LesPitonneuxStyle" parent="@style/Widget.AppCompat.Button.Colored">
+
+        <item name="android:colorButtonNormal">@color/wallet_holo_blue_light</item>
+        <item name="android:colorActivatedHighlight">@color/lesPitonneuxDarkPurple</item>
+
+
+    </style>-->
+
 </resources>
+
+
+
