@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_news_feeds"
+        android:enabled="true"
+        android:icon="@drawable/ic_inbox_black_24dp"
+        android:title="NewsFeed"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_calendar"
+        android:enabled="true"
+        android:icon="@drawable/ic_date_range_black_24dp"
+        android:title="Calendar"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_code_support"
+        android:enabled="true"
+        android:icon="@drawable/ic_code_black_24dp"
+        android:title="CodeSupport"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_resources"
+        android:enabled="true"
+        android:icon="@drawable/ic_device_hub_black_24dp"
+        android:title="Resources"
+        app:showAsAction="collapseActionView" />
+
+
+</menu>

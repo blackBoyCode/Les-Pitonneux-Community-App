@@ -51,64 +51,26 @@
 
     <!-- android:background="@drawable/test_button_color" -->
     <Button
-        android:id="@+id/learn_to_code_btn"
+        android:id="@+id/sign_in_google_button"
 
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:text="Build/learn/Teach"
+        android:layout_marginTop="390dp"
+        android:text="Gmail sign in"
         android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
 
     <Button
-        android:id="@+id/organizers_btn"
-
-        android:layout_width="250dp"
+        android:id="@+id/sign_in_slack"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/learn_to_code_btn"
+        android:layout_below="@id/sign_in_google_button"
         android:layout_centerHorizontal="true"
-        android:text="organizers"
+        android:text="Slack sign in"
+
         android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
-    <Button
-        android:id="@+id/start_up_btn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/organizers_btn"
-        android:layout_centerHorizontal="true"
-        android:text="start up"
-        android:textColor="@color/lesPitonneuxTransparentBlack"/>
-
-    <Button
-        android:id="@+id/projects_btn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/start_up_btn"
-        android:layout_centerHorizontal="true"
-        android:text="projects"
-        android:textColor="@color/lesPitonneuxTransparentBlack"/>
-
-    <Button
-        android:id="@+id/repairs_btn"
-
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/projects_btn"
-        android:layout_centerHorizontal="true"
-        android:text="repairs"
-        android:textColor="@color/lesPitonneuxTransparentBlack"/>
-
-
-    <Button
-        android:id="@+id/about_btn"
-
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/repairs_btn"
-        android:layout_centerHorizontal="true"
-        android:text="about"
-        android:textColor="@color/lesPitonneuxTransparentBlack"/>
 
 
     <Switch
