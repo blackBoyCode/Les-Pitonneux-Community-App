@@ -11,7 +11,16 @@
         <item name="android:statusBarColor">@color/lesPitonneuxPurpleLight</item>
         <item name="android:navigationBarColor">@color/lesPitonneuxPurpleLight</item>
         <item name="colorControlHighlight">@color/lesPitonneuxTransparentPurple</item>
+        <item name="actionBarStyle">@style/LesPitonneuxAppBarStyle</item>
         <!-- <item name="buttonStyle">@style/lesPitonneuxButtonStyle</item>-->
 
     </style>
+
+
+    <!-- App bar style -->
+    <style name="LesPitonneuxAppBarStyle" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!-- Remove the shadow below the app bar -->
+        <item name="elevation">0dp</item>
+    </style>
+
 </resources>

@@ -1,6 +1,7 @@
 package com.pitonneux.les_pitonneux;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ResourceFragment extends Fragment {
+
+    private Context context;
 
 
     public ResourceFragment() {
@@ -31,16 +35,16 @@ public class ResourceFragment extends Fragment {
 
         //HERE WE SET THE VIEWPAGER AND THE TAB LAYOUT
 
-       // ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.resource_view_pager);//TODO:this work
 
-        //set the adapter here                                     ///TODO:this migth not work????
-        ResourceAdapter resourceAdapter = new ResourceAdapter(getActivity(), getActivity().getSupportFragmentManager());
+        ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.resource_view_pager);//TODO:this work
 
-//        viewPager.setAdapter(resourceAdapter);
+        //set the adapter here
+        ResourceAdapter resourceAdapter = new ResourceAdapter(getActivity(),getActivity().getSupportFragmentManager());
 
+        viewPager.setAdapter(resourceAdapter);
 
-        //TabLayout tabLayout = (TabLayout) getActivity().findViewById(R.id.resource_tab_layout);
-//        tabLayout.setupWithViewPager(viewPager);
+        TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.resource_tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
 
 
 

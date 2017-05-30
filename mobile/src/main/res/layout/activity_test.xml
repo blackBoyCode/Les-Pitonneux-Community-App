@@ -16,7 +16,6 @@
         app:menu="@menu/menu_bottom_navigation"
         app:itemBackground="@android:color/holo_purple"
         app:itemIconTint="@android:color/holo_green_light"
-        app:itemTextColor="@android:color/holo_green_light"
-        />
+        app:itemTextColor="@android:color/holo_green_light" />
 
 </RelativeLayout>

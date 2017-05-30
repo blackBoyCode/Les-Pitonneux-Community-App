@@ -1,9 +1,11 @@
 package com.pitonneux.les_pitonneux;
 
+
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
 
 /**
  * Created by androidweardev on 5/27/17.

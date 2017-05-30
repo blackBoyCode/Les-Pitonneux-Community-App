@@ -32,18 +32,22 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_news_feeds:
                         // do something here
+                        getSupportActionBar().setTitle("$ NewsFeeds█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new NewsFragment()).commit();
                         return true;
                     case R.id.action_calendar:
                         // do something here
+                        getSupportActionBar().setTitle("$ Calendar█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new CalendarFragment()).commit();
                         return true;
                     case R.id.action_code_support:
                         // do something here
+                        getSupportActionBar().setTitle("$ Code_Support█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new CodeHelpFragment()).commit();
                         return true;
                     default:
                     // do something here
+                        getSupportActionBar().setTitle("$ Resources█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new ResourceFragment()).commit();
                     return true;
                 }
