@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);// THIS IS A TEST
 
+        getSupportActionBar().setTitle("$ news_feed█");
         //open the fragment NewsContent when first launching the activity
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new NewsFragment()).commit();
 
@@ -32,22 +33,22 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_news_feeds:
                         // do something here
-                        getSupportActionBar().setTitle("$ NewsFeeds█");
+                        getSupportActionBar().setTitle("$ news_feed█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new NewsFragment()).commit();
                         return true;
                     case R.id.action_calendar:
                         // do something here
-                        getSupportActionBar().setTitle("$ Calendar█");
+                        getSupportActionBar().setTitle("$ calendar█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new CalendarFragment()).commit();
                         return true;
                     case R.id.action_code_support:
                         // do something here
-                        getSupportActionBar().setTitle("$ Code_Support█");
+                        getSupportActionBar().setTitle("$ code_support█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new CodeHelpFragment()).commit();
                         return true;
                     default:
-                    // do something here
-                        getSupportActionBar().setTitle("$ Resources█");
+                        // do something here
+                        getSupportActionBar().setTitle("$ resources█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new ResourceFragment()).commit();
                     return true;
                 }

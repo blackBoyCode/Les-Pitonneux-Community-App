@@ -30,25 +30,22 @@ public class ResourceFragment extends Fragment {
                              Bundle savedInstanceState) {
         //TODO: need to add a rootView
         //Fragment we always need to inflate view and return it
-        View rootView = inflater.inflate(R.layout.resource_fragment,container,false);
+        View rootView = inflater.inflate(R.layout.resource_fragment, container, false);
 
 
         //HERE WE SET THE VIEWPAGER AND THE TAB LAYOUT
 
 
-        ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.resource_view_pager);//TODO:this work
+        ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.resource_view_pager);
 
         //set the adapter here
-        ResourceAdapter resourceAdapter = new ResourceAdapter(getActivity(),getActivity().getSupportFragmentManager());
+        ResourceAdapter resourceAdapter = new ResourceAdapter(getActivity(),getChildFragmentManager());
+
 
         viewPager.setAdapter(resourceAdapter);
 
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.resource_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
-
-
-
-
 
 
 
