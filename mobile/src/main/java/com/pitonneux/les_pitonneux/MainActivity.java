@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //TODO:THIS IS FOR GOING ON THE CATEGORY ACTIVITY FIRST INSTEAD OF PASSING IN THE SIGN IN PART
         setContentView(R.layout.activity_test);// THIS IS A TEST //TODO: build a new activity for this part
         setUpActionBar();
 

@@ -1,12 +1,14 @@
 package com.pitonneux.les_pitonneux;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,7 +40,24 @@ public class LocalResourceFragment extends Fragment {
         // To see the listItem view these two line of code must be initialize
         ListItemAdapter  listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
 
+        //set the adapter that will display the info
         listView.setAdapter(listItemAdapter);
+
+
+        //TODO:must set the on ItemClickListener on the other fragment
+
+        //handle the click event of a list item
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent I = new Intent(getActivity(),DetailActivity.class);
+                startActivity(I);
+
+            }
+        });
+
+
 
 
 
@@ -48,5 +67,8 @@ public class LocalResourceFragment extends Fragment {
 
         return rootView;
     }
+
+
+
 
 }
