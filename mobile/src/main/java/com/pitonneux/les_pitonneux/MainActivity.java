@@ -11,10 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextSwitcher;
-
-
-import static android.R.attr.id;
-import static android.R.id.toggle;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //TODO:THIS IS FOR GOING ON THE CATEGORY ACTIVITY FIRST INSTEAD OF PASSING IN THE SIGN IN PART
         setContentView(R.layout.activity_test);// THIS IS A TEST //TODO: build a new activity for this part
+
+        //TODO:I should add a custom toolbar to support older version of android
         setUpActionBar();
 
         //TODO: is there a more elegant way for not repeating this line of code?
@@ -39,15 +39,13 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
 
-        //TODO: animate action bar title TextSwitcher textSwitcher =new TextSwitcher(this);
-
-
+        //TODO: animate action bar title maybe the use of TextSwitcher
 
 
         //???
         bottomNavigationView.setSelectedItemId(R.id.action_news_feeds);
 
-        //set the navigation when an item is clicked
+        //set the navigation category when an item is clicked
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         // do something here
                         getSupportActionBar().setTitle("$ resources█");
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new ResourceFragment()).commit();
-                    return true;
+                        return true;
                 }
             }
         });
@@ -82,19 +80,18 @@ public class MainActivity extends AppCompatActivity {
     /**
      * this method setup the drawer icon
      */
-    private void setUpActionBar(){
+    private void setUpActionBar() {
 
         //SET THE HAMBURGER ICON TO BE VISIBLE
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 
-        toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
+        toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
-            private CharSequence saveTitle="";
+            private CharSequence saveTitle = "";
 
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
@@ -119,12 +116,10 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
 
-
 //
 //        //SET ITEM LISTENER FOR DRAWER ITEMS
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
-
 
 
     }
@@ -142,8 +137,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     //this handle the back pressed button with the drawer action
     @Override
     public void onBackPressed() {
@@ -156,9 +149,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * TODO: this is a test method for adding a custom view to the actionBar....
+     */
+    public void SetupCustomActionBarTitle() {
+
+        TextView x = new TextView(this);
+        x.setTextSize(20);
 
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setCustomView(x);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
 
+
+    }
 
 
 }
