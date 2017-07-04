@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextSwitcher;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //this is the toggle button that we will handle with the drawer
     private ActionBarDrawerToggle toggle;
 
 
@@ -26,26 +28,28 @@ public class MainActivity extends AppCompatActivity {
         //TODO:THIS IS FOR GOING ON THE CATEGORY ACTIVITY FIRST INSTEAD OF PASSING IN THE SIGN IN PART
         setContentView(R.layout.activity_test);// THIS IS A TEST //TODO: build a new activity for this part
 
-        //TODO:I should add a custom toolbar to support older version of android
-        setUpActionBar();
+        //set the toolbar to use it with system
+        final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setUpActionBar(toolbar);
 
         //TODO: is there a more elegant way for not repeating this line of code?
         getSupportActionBar().setTitle("$ news_feed█");
+
         //open the fragment NewsContent when first launching the activity
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new NewsFragment()).commit();
 
 
         //set the bottom navigation and find the view id from the layout
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        //this line remove the animation from the bottom navigation view
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
 
         //TODO: animate action bar title maybe the use of TextSwitcher
 
-
         //???
         bottomNavigationView.setSelectedItemId(R.id.action_news_feeds);
 
-        //set the navigation category when an item is clicked
+        //set the navigation category fragment when an item is clicked
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -79,17 +83,19 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * this method setup the drawer icon
+     * @param toolbar take a toolbar widget to customize
      */
-    private void setUpActionBar() {
+    private void setUpActionBar(Toolbar toolbar) {
+
+        setSupportActionBar(toolbar);
 
         //SET THE HAMBURGER ICON TO BE VISIBLE
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-
-        toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+        //set up the toggle button that we define as a global variable
+        toggle = new ActionBarDrawerToggle(this, drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             private CharSequence saveTitle = "";
 
@@ -112,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         drawer.addDrawerListener(toggle);///TODO:  drawer.setDrawerListener(toggle); same but works WHY?
+
         //THIS IS IMPORTANT TO NOTIFY THE DRAWER OF ANY CHANGE
         toggle.syncState();
 

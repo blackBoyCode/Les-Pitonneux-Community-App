@@ -12,7 +12,7 @@
 
 
 
-    <style name="LesPitonneuxTheme" parent="Theme.AppCompat.Light">
+    <style name="LesPitonneuxTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/holo_purple</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -22,8 +22,16 @@
         <item name="colorButtonNormal">@color/custom_light_grey</item>
         <item name="colorControlHighlight">@color/lesPitonneuxTransparentPurple</item>
         <item name="actionBarStyle">@style/LesPitonneuxAppBarStyle</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
        <!-- <item name="buttonStyle">@style/lesPitonneuxButtonStyle</item>-->
 
+    </style>
+
+
+
+    <!--drawer toggle icon color-->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/holo_green_light</item>
     </style>
 
 
