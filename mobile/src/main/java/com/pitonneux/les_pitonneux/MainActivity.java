@@ -13,9 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //this is the toggle button that we will handle with the drawer
     private ActionBarDrawerToggle toggle;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //this line remove the animation from the bottom navigation view
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
 
-        //TODO: animate action bar title maybe the use of TextSwitcher
+        //TODO: animate action bar title maybe the use of TextSwitcher?
 
         //???
         bottomNavigationView.setSelectedItemId(R.id.action_news_feeds);
@@ -123,16 +124,22 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
 
-//
-//        //SET ITEM LISTENER FOR DRAWER ITEMS
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
+
+        //SET ITEM LISTENER FOR DRAWER ITEMS
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
 
     }
 
 
+
+
+
+
+
     ///TODO:this is important //Need to understand this code better ?
+    //this button handle the toggle button
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -141,7 +148,49 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
+
+
+
+    //this handle the navigationView button
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            // Handle the camera action
+            Toast.makeText(this,"item one",Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.nav_messages) {
+            Toast.makeText(this,"item two",Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.nav_friends) {
+            Toast.makeText(this,"item three",Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.nav_discussion) {
+
+            Toast.makeText(this,"item four",Toast.LENGTH_SHORT).show();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        //TODO: whats this ? GravityCompat?
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     //this handle the back pressed button with the drawer action
@@ -154,6 +203,10 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+
+
+
 
 
     /**
@@ -171,6 +224,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 }

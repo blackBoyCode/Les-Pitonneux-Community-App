@@ -7,9 +7,9 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import static android.R.attr.x;
 
-
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity2ToErase extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,9 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //TODO: must fix the theme color to that is apply to this line of code
+        //TODO: BUG TO FIX BUTTON DOESN'T WORK
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("$ DigiLabs-MTL█");
+        getSupportActionBar().setTitle("$ Pyladies█");
 
 
         //set the title on the CollapsingToolBarLayout instead of the Toolbar.
@@ -32,39 +33,41 @@ public class DetailActivity extends AppCompatActivity {
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         //collapsingToolbar.setTitle("DigiLabs");
 
+
         ImageView logoImage = (ImageView) findViewById(R.id.logo_image);
-        logoImage.setImageResource(R.drawable.digi_lab);
+        logoImage.setImageResource(R.drawable.pyladies);
 
         //set the description cardView
         TextView cardDescription = (TextView) findViewById(R.id.description);
-        cardDescription.setText("From cellphones to coffee makers, almost any electronic device with an on/off switch can be connected to the Internet. The Internet of Things (IoT) hands-on workshop is an amazing opportunity to learn how to build your own IoT device accessible through the cloud, coded in the Arduino programming language.");
+        cardDescription.setText("We are an international mentorship group with a focus on helping more women become active participants and leaders in the Python open-source community. Our mission is to promote, educate and advance a diverse Python community through outreach, education, conferences, events and social gatherings.\n" +
+                "\n" +
+                "PyLadies also aims to provide a friendly support network for women and a bridge to the larger Python world. Anyone with an interest in Python is encouraged to participate!");
 
-       // TextView cardContact = (TextView) findViewById(R.id.contact);
+        // TextView cardContact = (TextView) findViewById(R.id.contact);
 
         //set the contact cardView content
         TextView locationLink = (TextView) findViewById(R.id.location);
-        locationLink.setText("51 Sherbrooke st. West, suite #5\n" +
-                "Montreal, Quebec H2X 1X2");
+        locationLink.setText("The location is shown only to members. Join our meetup!");
 
         TextView meetupLink = (TextView) findViewById(R.id.meetup);
-        meetupLink.setText("https://www.meetup.com/fr-FR/FPGA-Academy/");
+        meetupLink.setText("https://www.meetup.com/PyLadiesMTL/");
 
         TextView emailLink = (TextView) findViewById(R.id.email);
-        emailLink.setText("digilabsmtl.iotws@gmail.com");
+        emailLink.setText("montreal@pyladies.com");
 
         TextView facebookLink = (TextView) findViewById(R.id.facebook);
-        facebookLink.setText("https://www.facebook.com/pages/DigiLabs-MTL/135945533603038");
+        facebookLink.setText("https://www.facebook.com/pyladies/");
+
+        TextView twitterLink = (TextView) findViewById(R.id.twitter);
+        twitterLink.setText("https://twitter.com/pyladiesmtl");
+
+        TextView slackLink = (TextView) findViewById(R.id.slack);
+        slackLink.setText("https://slackin.pyladies.com/");
 
         //set the message cardView
         TextView cardMessages = (TextView) findViewById(R.id.message);
-        cardMessages.setText("Come share your experiences and learn FPGA design in a collaborative climate.");
+        cardMessages.setText("Developers and aspiring developers only, please. (Beginners are always welcome!) Men are welcome as the guest (+1) of a woman attendee.");
 
-        TextView twitterLink = (TextView) findViewById(R.id.twitter);
-        twitterLink.setText("twitter.com/?");
 
-        TextView slackLink = (TextView) findViewById(R.id.slack);
-        slackLink.setText("digilabs-mtl.slack.com");
     }
-
-
 }

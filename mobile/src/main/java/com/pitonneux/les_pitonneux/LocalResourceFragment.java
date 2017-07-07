@@ -31,9 +31,10 @@ public class LocalResourceFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.navigation_list,container,false);
 
-
+        //here we put the list item text and value
         ArrayList<ListItem> localResourceList = new ArrayList<ListItem>();
-        localResourceList.add(new ListItem("blabla", "blabla Description",R.mipmap.ic_launcher));
+        localResourceList.add(new ListItem("DigiLabs-MTL", "IoT workshops for everyone!, come and engage the engine in yourself.",R.drawable.digi_lab));
+        localResourceList.add(new ListItem("PyLadiesMTL", "A group of women developers in Montreal who love the Python programming language.",R.drawable.pylady_geek_full_standard));
 
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
@@ -51,8 +52,18 @@ public class LocalResourceFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent I = new Intent(getActivity(),DetailActivity.class);
-                startActivity(I);
+                //TODO:this is dummy code for now much change in the future
+                if(position == 0){
+
+                    Intent I = new Intent(getActivity(),DetailActivity.class);
+                    startActivity(I);
+                }else{
+
+                    Intent I = new Intent(getActivity(),DetailActivity2ToErase.class);
+                    startActivity(I);
+
+                }
+
 
             }
         });

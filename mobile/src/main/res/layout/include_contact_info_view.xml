@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--THIS XML FILE IS FOR THE CONTACT CARD VIEW IN DETAIL ACTIVITY -->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/location_linear_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_location_on_black_24dp"
+            android:padding="7dp"/>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="hello world"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/meetup_linear_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/contact_card_meetup_logo"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/meetup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="hello world"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/email_linear_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_email_black_24dp"
+            android:padding="9dp"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="hello world"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/facebook_linear_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/contact_card_facebook_logo"
+            android:padding="11dp"/>
+
+        <TextView
+            android:id="@+id/facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="hello world"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/twitter_linear_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/contact_card_twitter_logo"
+            android:padding="1dp"/>
+
+        <TextView
+            android:id="@+id/twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="hello world"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/slack_linear_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/contact_card_slack_logo"
+            android:padding="0dp"/>
+
+        <TextView
+            android:id="@+id/slack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="hello world"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
