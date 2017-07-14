@@ -1,3 +1,4 @@
+![ic _pitonneux_logo_rose](https://user-images.githubusercontent.com/23729554/28220304-ede302b2-688c-11e7-8e92-785eef74b54a.png)
 # Les-Pitonneux-Community-App
 guide app for new comers and bunch of stuff 
 
