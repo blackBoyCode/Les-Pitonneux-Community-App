@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/custom_light_blue</item>
+    </style>
+
+
+
+
+    <style name="LesPitonneuxTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/holo_purple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--textColorPrimary set the text color for the hole app-->
+        <item name="android:textColorPrimary">@android:color/holo_green_light</item>
+        <item name="colorButtonNormal">@color/custom_light_grey</item>
+        <item name="colorControlHighlight">@color/lesPitonneuxTransparentPurple</item>
+        <item name="actionBarStyle">@style/LesPitonneuxAppBarStyle</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:textColorSecondary">@android:color/holo_green_light</item>
+
+        <!--TODO: to test <item name="android:colorControlNormal"></item>-->
+        <!-- <item name="buttonStyle">@style/lesPitonneuxButtonStyle</item>-->
+
+    </style>
+
+
+
+    <!--drawer toggle icon color-->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/holo_green_light</item>
+    </style>
+
+
+
+    <!-- App bar style -->
+    <style name="LesPitonneuxAppBarStyle" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!-- Remove the shadow below the app bar -->
+        <item name="elevation">0dp</item>
+    </style>
+
+
+    <style name="lesPitonneuxButtonStyle" parent="Widget.AppCompat.Button">
+
+        <item name="buttonTint">@color/custom_light_blue</item>
+
+
+    </style>
+
+
+    <!-- testStyleTheme -->
+    <!--<style name="LesPitonneuxStyle" parent="@style/Widget.AppCompat.Button.Colored">
+
+        <item name="android:colorButtonNormal">@color/wallet_holo_blue_light</item>
+        <item name="android:colorActivatedHighlight">@color/lesPitonneuxDarkPurple</item>
+
+
+    </style>-->
+
+</resources>
+
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--TODO: change name put the appropriate icon and arrange and need to learn more on the <group> tag-->
+    <item android:title="Profile Option">
+
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@color/custom_light_blue"
+                android:title="Home"
+                />
+            <item
+                android:id="@+id/nav_messages"
+                android:icon="@color/custom_light_grey"
+                android:title="Messages" />
+            <item
+                android:id="@+id/nav_friends"
+                android:icon="@color/custom_dark_blue"
+                android:title="Friends" />
+            <item
+                android:id="@+id/nav_discussion"
+                android:icon="@color/lesPitonneuxTransparentBlack"
+                android:title="Discussion" />
+
+        </menu>
+
+    </item>
+
+    <item android:title="Availability">
+        <menu>
+            <item
+                android:icon="@color/colorAccent"
+                android:title="mentor others"
+                app:actionViewClass="android.support.v7.widget.SwitchCompat" />
+
+            <item
+                android:icon="@color/colorAccent"
+                android:title="hide my presence"
+                app:actionViewClass="android.support.v7.widget.SwitchCompat" />
+
+
+        </menu>
+    </item>
+
+</menu>
+
+
