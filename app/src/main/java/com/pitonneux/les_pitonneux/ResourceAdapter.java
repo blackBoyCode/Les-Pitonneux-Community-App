@@ -5,8 +5,9 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
+
+import com.pitonneux.les_pitonneux.fragments.resource_sub_fragments.LocalResourceFragment;
+import com.pitonneux.les_pitonneux.fragments.resource_sub_fragments.OnlineResourceFragment;
 
 
 /**

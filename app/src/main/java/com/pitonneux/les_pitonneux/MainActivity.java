@@ -11,9 +11,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pitonneux.les_pitonneux.fragments.CalendarFragment;
+import com.pitonneux.les_pitonneux.fragments.CodeHelpFragment;
+import com.pitonneux.les_pitonneux.fragments.NewsFragment;
+import com.pitonneux.les_pitonneux.fragments.ResourceFragment;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

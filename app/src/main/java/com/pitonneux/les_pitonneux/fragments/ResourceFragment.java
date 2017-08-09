@@ -1,4 +1,4 @@
-package com.pitonneux.les_pitonneux;
+package com.pitonneux.les_pitonneux.fragments;
 
 
 import android.content.Context;
@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.pitonneux.les_pitonneux.R;
+import com.pitonneux.les_pitonneux.ResourceAdapter;
 
 
 /**

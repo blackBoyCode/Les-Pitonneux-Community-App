@@ -1,4 +1,4 @@
-package com.pitonneux.les_pitonneux;
+package com.pitonneux.les_pitonneux.fragments;
 
 
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.pitonneux.les_pitonneux.ListItem;
+import com.pitonneux.les_pitonneux.ListItemAdapter;
+import com.pitonneux.les_pitonneux.R;
 
 import java.util.ArrayList;
 

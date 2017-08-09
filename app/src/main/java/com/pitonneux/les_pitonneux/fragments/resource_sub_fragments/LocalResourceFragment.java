@@ -1,4 +1,4 @@
-package com.pitonneux.les_pitonneux;
+package com.pitonneux.les_pitonneux.fragments.resource_sub_fragments;
 
 
 import android.content.Intent;
@@ -12,6 +12,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.pitonneux.les_pitonneux.DetailActivity;
+import com.pitonneux.les_pitonneux.DetailActivity2ToErase;
+import com.pitonneux.les_pitonneux.ListItem;
+import com.pitonneux.les_pitonneux.ListItemAdapter;
+import com.pitonneux.les_pitonneux.R;
 
 import java.util.ArrayList;
 
@@ -39,7 +45,7 @@ public class LocalResourceFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         // To see the listItem view these two line of code must be initialize
-        ListItemAdapter  listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
+        ListItemAdapter listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
 
         //set the adapter that will display the info
         listView.setAdapter(listItemAdapter);

@@ -1,4 +1,4 @@
-package com.pitonneux.les_pitonneux;
+package com.pitonneux.les_pitonneux.fragments.resource_sub_fragments;
 
 
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.pitonneux.les_pitonneux.ListItem;
+import com.pitonneux.les_pitonneux.ListItemAdapter;
+import com.pitonneux.les_pitonneux.R;
 
 import java.util.ArrayList;
 
@@ -38,7 +42,7 @@ public class OnlineResourceFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         // To see the listItem view these two line of code must be initialize
-        ListItemAdapter  listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
+        ListItemAdapter listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
 
         listView.setAdapter(listItemAdapter);
 
