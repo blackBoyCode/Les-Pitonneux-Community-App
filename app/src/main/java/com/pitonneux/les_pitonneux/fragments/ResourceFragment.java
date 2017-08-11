@@ -1,7 +1,6 @@
 package com.pitonneux.les_pitonneux.fragments;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -20,7 +19,6 @@ import com.pitonneux.les_pitonneux.ResourceAdapter;
  */
 public class ResourceFragment extends Fragment {
 
-    private Context context;
 
 
     public ResourceFragment() {
