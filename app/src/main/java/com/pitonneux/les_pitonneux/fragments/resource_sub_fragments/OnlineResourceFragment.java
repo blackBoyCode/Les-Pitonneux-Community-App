@@ -21,6 +21,7 @@ import java.util.ArrayList;
  */
 public class OnlineResourceFragment extends Fragment {
 
+    public static final String ONLINE_FRAGMENT_REQUEST = "https://androidtestproject-d2b4d.firebaseio.com/onlineResources.json" ;
 
     public OnlineResourceFragment() {
         // Required empty public constructor

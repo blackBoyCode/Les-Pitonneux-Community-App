@@ -20,6 +20,8 @@ import java.util.ArrayList;
  */
 public class CalendarFragment extends Fragment {
 
+    public static final String MEETUP_API_REQUEST_URL = "http://www.example.com";
+
 
     public CalendarFragment() {
         // Required empty public constructor

@@ -16,6 +16,10 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+import static com.pitonneux.les_pitonneux.fragments.CalendarFragment.MEETUP_API_REQUEST_URL;
+import static com.pitonneux.les_pitonneux.fragments.NewsFragment.NEWS_EVENTS_REQUEST_URL;
+import static com.pitonneux.les_pitonneux.fragments.resource_sub_fragments.LocalResourceFragment.LOCAL_RESOURCE_REQUEST;
+
 /**
  * this class is used to extract JSON
  */
@@ -44,7 +48,7 @@ public final class QueryUtils {
 
         }
         //here we prepare a list of ListItem to return
-        ArrayList<ListItem> listItems = extractListItem(jsonResponse);
+        ArrayList<ListItem> listItems = jsonParserChooser(jsonResponse);//TODO need an extra step here(done)
 
         return listItems;
     }
@@ -144,11 +148,8 @@ public final class QueryUtils {
 
 
 
-    /**
-     * Return a list of {@link ListItem} objects that has been built up from
-     * parsing a JSON response.
-     */
-    private static ArrayList<ListItem> extractListItem(String listItemJSON) {
+
+    private static ArrayList<ListItem> extractNewsListItem(String newsJSON) {
 
         // Create an empty ArrayList that we can start adding listItems from the JSON key values
         ArrayList<ListItem> listItems = new ArrayList<>();
@@ -157,17 +158,13 @@ public final class QueryUtils {
         try {
 
             // the baseJsonResponse is actually a JSONObject
-            JSONObject baseJsonResponse = new JSONObject(listItemJSON);
+            JSONObject baseJsonResponse = new JSONObject(newsJSON);
 
             // here we extract the array in the JSON key value "features"
             JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
 
-
             String title = listItemObject.getString("title");
             String description = listItemObject.getString("description");
-
-
-
 
 
                 // and url from the JSON response.
@@ -183,6 +180,116 @@ public final class QueryUtils {
 
         // Return the list of listItems
         return listItems;
+    }
+
+
+
+    private static ArrayList<ListItem> extractLocalResourceListItem(String localJSON) {
+
+        // Create an empty ArrayList that we can start adding listItems from the JSON key values
+        ArrayList<ListItem> listItems = new ArrayList<>();
+
+        //TODO iterate to map keys
+        try {
+
+            // the baseJsonResponse is actually a JSONObject
+            JSONObject baseJsonResponse = new JSONObject(localJSON);
+
+
+//            for(int i = 0;i<baseJsonResponse.length();i++){
+//
+//                //baseJsonResponse.getString()
+//            }
+
+            // here we extract the array in the JSON key value "features"
+            JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
+
+            String title = listItemObject.getString("title");
+            String description = listItemObject.getString("description");
+
+
+
+
+
+            // and url from the JSON response.
+            listItems.add(new ListItem(title,description));
+
+
+        } catch (JSONException e) {
+            // If an error is thrown when executing any of the above statements in the "try" block,
+            // catch the exception here, so the app doesn't crash. Print a log message
+            // with the message from the exception.
+            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+        }
+
+        // Return the list of listItems
+        return listItems;
+    }
+
+
+
+    private static ArrayList<ListItem> extractOnlineResourceListItem(String onlineJSON) {
+
+        // Create an empty ArrayList that we can start adding listItems from the JSON key values
+        ArrayList<ListItem> listItems = new ArrayList<>();
+
+        //TODO iterate to map keys
+        try {
+
+            // the baseJsonResponse is actually a JSONObject
+            JSONObject baseJsonResponse = new JSONObject(onlineJSON);
+
+            // here we extract the array in the JSON key value "features"
+            JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
+
+            String title = listItemObject.getString("title");
+            String description = listItemObject.getString("description");
+
+
+
+
+
+            // and url from the JSON response.
+            listItems.add(new ListItem(title,description));
+
+
+        } catch (JSONException e) {
+            // If an error is thrown when executing any of the above statements in the "try" block,
+            // catch the exception here, so the app doesn't crash. Print a log message
+            // with the message from the exception.
+            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+        }
+
+        // Return the list of listItems
+        return listItems;
+    }
+
+
+
+
+
+
+    private static ArrayList<ListItem> jsonParserChooser(String requestUrl){
+
+        switch (requestUrl)
+        {
+            case LOCAL_RESOURCE_REQUEST:
+                extractLocalResourceListItem(requestUrl);
+
+            case NEWS_EVENTS_REQUEST_URL:
+                extractOnlineResourceListItem(requestUrl);
+
+            case MEETUP_API_REQUEST_URL:
+                Log.v(LOG_TAG,"meetup");//TODO to be resolve
+
+            default:
+                return extractNewsListItem(requestUrl);
+
+
+        }
+
+
+
     }
 
 }

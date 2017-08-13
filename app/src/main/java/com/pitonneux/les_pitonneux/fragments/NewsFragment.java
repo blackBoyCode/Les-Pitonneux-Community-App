@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import com.pitonneux.les_pitonneux.loaders.NewsEventsLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.data;
+import static android.os.Build.VERSION_CODES.N;
 import static android.support.v7.widget.AppCompatDrawableManager.get;
 
 /**
@@ -32,13 +35,16 @@ import static android.support.v7.widget.AppCompatDrawableManager.get;
 public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<ListItem>> {
 
 
-    private static final String NEWS_EVENTS_REQUEST_URL = "https://androidtestproject-d2b4d.firebaseio.com/newsEvents.json";
+    // set this String to public to verify witch link on QueryUtils
+    public static final String NEWS_EVENTS_REQUEST_URL = "https://androidtestproject-d2b4d.firebaseio.com/newsEvents.json";
 
     private static final int NEWS_LOADER_ID = 1;
 
     private ListItemAdapter mAdapter;
 
     private TextView mEmptyStateTextView;
+
+    private View loadingIndicator;
 
     public NewsFragment() {
         // Required empty public constructor
@@ -54,6 +60,8 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         View rootView = inflater.inflate(R.layout.navigation_list,container,false);
 
         mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
+
+        loadingIndicator = rootView.findViewById(R.id.loading_indicator);
 
 
 
@@ -111,8 +119,11 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public void onLoadFinished(Loader<List<ListItem>> loader, List<ListItem> data) {
                             //the get activity here is the FragmentActivity
-        View loadingIndicator = getActivity().findViewById(R.id.loading_indicator);
-        loadingIndicator.setVisibility(View.GONE);
+
+        //TODO need to understand why this line of code crash my app
+        //View loadingIndicator = getActivity.findViewById(R.id.loading_indicator);
+        loadingIndicator.setVisibility(View.GONE);// I had to put it as a global variable for the bug
+
 
         mEmptyStateTextView.setText("No News Found");
 

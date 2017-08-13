@@ -1,7 +1,13 @@
 package com.pitonneux.les_pitonneux.fragments.resource_sub_fragments;
 
 
+import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
+import android.content.Context;
 import android.content.Intent;
+import android.content.Loader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -20,11 +26,25 @@ import com.pitonneux.les_pitonneux.ListItemAdapter;
 import com.pitonneux.les_pitonneux.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LocalResourceFragment extends Fragment {
+public class LocalResourceFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<ListItem>>{
+
+    //set this String to public to verify witch link on QueryUtils
+    public static final String LOCAL_RESOURCE_REQUEST = "https://androidtestproject-d2b4d.firebaseio.com/localResources.json";
+
+    private static final int LOCAL_RESOURCE_LOADER_ID = 2;
+
+    private ListItemAdapter mAdapter;
+
+    private TextView mEmptyStateTextView;
+
+    private View loadingIndicator;
 
 
     public LocalResourceFragment() {
@@ -37,18 +57,27 @@ public class LocalResourceFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.navigation_list,container,false);
 
-        //here we put the list item text and value
-        ArrayList<ListItem> localResourceList = new ArrayList<ListItem>();
-        localResourceList.add(new ListItem("DigiLabs-MTL", "IoT workshops for everyone!, come and engage the engine in yourself.",R.drawable.digi_lab));
-        localResourceList.add(new ListItem("PyLadiesMTL", "A group of women developers in Montreal who love the Python programming language.",R.drawable.pylady_geek_full_standard));
+        mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
+
+        loadingIndicator = rootView.findViewById(R.id.loading_indicator);
+
+        mAdapter = new ListItemAdapter(getContext(),new ArrayList<ListItem>());
+
+//        //here we put the list item text and value
+//        ArrayList<ListItem> localResourceList = new ArrayList<ListItem>();
+//        localResourceList.add(new ListItem("DigiLabs-MTL", "IoT workshops for everyone!, come and engage the engine in yourself.",R.drawable.digi_lab));
+//        localResourceList.add(new ListItem("PyLadiesMTL", "A group of women developers in Montreal who love the Python programming language.",R.drawable.pylady_geek_full_standard));
 
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
-        // To see the listItem view these two line of code must be initialize
-        ListItemAdapter listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
+        listView.setEmptyView(mEmptyStateTextView);
+
+//        // To see the listItem view these two line of code must be initialize
+//        ListItemAdapter listItemAdapter = new ListItemAdapter(getActivity(), localResourceList);
 
         //set the adapter that will display the info
-        listView.setAdapter(listItemAdapter);
+        listView.setAdapter(mAdapter);
+
 
 
         //TODO:must set the on ItemClickListener on the other fragment
@@ -76,6 +105,31 @@ public class LocalResourceFragment extends Fragment {
 
 
 
+        // check internet connectivity
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        // If there is a network connection, fetch data
+        // if networkInfo is not empty and network is connected then perform step...
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            //TODO why get activity
+            LoaderManager loaderManager = getActivity().getLoaderManager();//there also getSupportLoaderManager();
+            // initialize the loader and specify an id for reuse
+            loaderManager.initLoader(LOCAL_RESOURCE_LOADER_ID, null, this);
+
+
+        } else {
+            //set the loading indicator to gone if we have no connection
+            //so that it will not overlap the view when showing "no internet connection"
+            View loadingIndicator = rootView.findViewById(R.id.loading_indicator);
+            loadingIndicator.setVisibility(View.GONE);
+
+            mEmptyStateTextView.setText("no internet connection");
+        }
 
 
 
@@ -86,6 +140,19 @@ public class LocalResourceFragment extends Fragment {
     }
 
 
+    @Override
+    public Loader<List<ListItem>> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
 
+    @Override
+    public void onLoadFinished(Loader<List<ListItem>> loader, List<ListItem> data) {
 
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<ListItem>> loader) {
+
+        mAdapter.clear();
+    }
 }
