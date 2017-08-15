@@ -24,6 +24,7 @@ import com.pitonneux.les_pitonneux.DetailActivity2ToErase;
 import com.pitonneux.les_pitonneux.ListItem;
 import com.pitonneux.les_pitonneux.ListItemAdapter;
 import com.pitonneux.les_pitonneux.R;
+import com.pitonneux.les_pitonneux.loaders.LocalResourceLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,11 +143,25 @@ public class LocalResourceFragment extends Fragment implements LoaderManager.Loa
 
     @Override
     public Loader<List<ListItem>> onCreateLoader(int id, Bundle args) {
-        return null;
+        return new LocalResourceLoader(getContext(),LOCAL_RESOURCE_REQUEST);
     }
 
     @Override
     public void onLoadFinished(Loader<List<ListItem>> loader, List<ListItem> data) {
+
+
+        loadingIndicator.setVisibility(View.GONE);// I had to put it as a global variable for the bug where the app crash
+
+
+        mEmptyStateTextView.setText("No Local Information Found");
+
+        mAdapter.clear();
+
+        if(data != null && !data.isEmpty()){
+
+
+            mAdapter.addAll(data);
+        }
 
     }
 

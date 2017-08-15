@@ -2,7 +2,6 @@ package com.pitonneux.les_pitonneux;
 
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static com.pitonneux.les_pitonneux.fragments.CalendarFragment.MEETUP_API_REQUEST_URL;
 import static com.pitonneux.les_pitonneux.fragments.NewsFragment.NEWS_EVENTS_REQUEST_URL;
@@ -29,21 +29,21 @@ public final class QueryUtils {
 
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    private QueryUtils(){
+    private QueryUtils() {
 
     }
 
 
-    public static ArrayList<ListItem> fetchListItemData(String requestUrl){
+    public static ArrayList<ListItem> fetchListItemData(String requestUrl) {
         //create the url with our own method
         URL url = createUrl(requestUrl);
         //perform the Http request our own method
         String jsonResponse = null;
-        try{
+        try {
 
             jsonResponse = makeHttpRequest(url);
 
-        }catch (IOException e){
+        } catch (IOException e) {
             Log.e(QueryUtils.class.getSimpleName(), "Error closing input stream", e);
 
         }
@@ -54,33 +54,31 @@ public final class QueryUtils {
     }
 
 
-
     /**
-     *
      * the method encapsulate the url inside a try/catch block
+     *
      * @param stringUrl the url of http String
      * @return a valid url
      */
-    private static URL createUrl(String stringUrl){
+    private static URL createUrl(String stringUrl) {
         URL url = null;// outside the try/catch for the variable scope
-        try{
+        try {
             url = new URL(stringUrl);
-        }catch (MalformedURLException e){
-            Log.e(QueryUtils.class.getSimpleName(),"invalid url",e);
+        } catch (MalformedURLException e) {
+            Log.e(QueryUtils.class.getSimpleName(), "invalid url", e);
             return null;//here it ends the method with null not executing the rest of the code
         }
 
-        return url ;
+        return url;
     }
 
 
     /**
-     *
      * @param url the request url passed in by the {{@link #fetchListItemData(String)}}
      * @return a string containing the JSON response
      * @throws IOException we need to handle the InputStream error if any, try/catch inside {{@link #fetchListItemData(String)}}
      */
-    private static String makeHttpRequest(URL url) throws IOException{
+    private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
         // If the URL is null, then return early.
@@ -125,7 +123,6 @@ public final class QueryUtils {
 
 
     /**
-     *
      * @param inputStream takes the inputStream given by the server (request url)
      * @return build and return the String containing the server response
      * @throws IOException handle the InputStream error if any, try/catch inside {{@link #makeHttpRequest(URL)}}
@@ -145,10 +142,6 @@ public final class QueryUtils {
     }
 
 
-
-
-
-
     private static ArrayList<ListItem> extractNewsListItem(String newsJSON) {
 
         // Create an empty ArrayList that we can start adding listItems from the JSON key values
@@ -161,14 +154,24 @@ public final class QueryUtils {
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
 
             // here we extract the array in the JSON key value "features"
-            JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
+            //    JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
 
-            String title = listItemObject.getString("title");
-            String description = listItemObject.getString("description");
+            // TODO: must understand this part
+            Iterator<String> test = baseJsonResponse.keys();
 
+            while (test.hasNext()) {
+
+                String keys = test.next();
+                JSONObject value = baseJsonResponse.getJSONObject(keys);
+
+                String title = value.getString("title");
+                String description = value.getString("description");
 
                 // and url from the JSON response.
-                listItems.add(new ListItem(title,description));
+                listItems.add(new ListItem(title, description));
+
+
+            }
 
 
         } catch (JSONException e) {
@@ -181,7 +184,6 @@ public final class QueryUtils {
         // Return the list of listItems
         return listItems;
     }
-
 
 
     private static ArrayList<ListItem> extractLocalResourceListItem(String localJSON) {
@@ -196,23 +198,22 @@ public final class QueryUtils {
             JSONObject baseJsonResponse = new JSONObject(localJSON);
 
 
-//            for(int i = 0;i<baseJsonResponse.length();i++){
 //
-//                //baseJsonResponse.getString()
-//            }
+            Iterator<String> test = baseJsonResponse.keys();
 
-            // here we extract the array in the JSON key value "features"
-            JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
+            while (test.hasNext()) {
 
-            String title = listItemObject.getString("title");
-            String description = listItemObject.getString("description");
+                String keys = test.next();
+                JSONObject value = baseJsonResponse.getJSONObject(keys);
+
+                String title = value.getString("title");
+                String description = value.getString("description");
+
+                // and url from the JSON response.
+                listItems.add(new ListItem(title, description));
 
 
-
-
-
-            // and url from the JSON response.
-            listItems.add(new ListItem(title,description));
+            }
 
 
         } catch (JSONException e) {
@@ -225,7 +226,6 @@ public final class QueryUtils {
         // Return the list of listItems
         return listItems;
     }
-
 
 
     private static ArrayList<ListItem> extractOnlineResourceListItem(String onlineJSON) {
@@ -236,8 +236,10 @@ public final class QueryUtils {
         //TODO iterate to map keys
         try {
 
+
             // the baseJsonResponse is actually a JSONObject
             JSONObject baseJsonResponse = new JSONObject(onlineJSON);
+
 
             // here we extract the array in the JSON key value "features"
             JSONObject listItemObject = baseJsonResponse.getJSONObject("115862");
@@ -246,11 +248,8 @@ public final class QueryUtils {
             String description = listItemObject.getString("description");
 
 
-
-
-
             // and url from the JSON response.
-            listItems.add(new ListItem(title,description));
+            listItems.add(new ListItem(title, description));
 
 
         } catch (JSONException e) {
@@ -265,14 +264,9 @@ public final class QueryUtils {
     }
 
 
+    private static ArrayList<ListItem> jsonParserChooser(String requestUrl) {
 
-
-
-
-    private static ArrayList<ListItem> jsonParserChooser(String requestUrl){
-
-        switch (requestUrl)
-        {
+        switch (requestUrl) {
             case LOCAL_RESOURCE_REQUEST:
                 extractLocalResourceListItem(requestUrl);
 
@@ -280,14 +274,13 @@ public final class QueryUtils {
                 extractOnlineResourceListItem(requestUrl);
 
             case MEETUP_API_REQUEST_URL:
-                Log.v(LOG_TAG,"meetup");//TODO to be resolve
+                Log.v(LOG_TAG, "meetup");//TODO to be resolve
 
             default:
                 return extractNewsListItem(requestUrl);
 
 
         }
-
 
 
     }

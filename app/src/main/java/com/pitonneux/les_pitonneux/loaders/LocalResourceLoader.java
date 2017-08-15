@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.pitonneux.les_pitonneux.ListItem;
 import com.pitonneux.les_pitonneux.ListItemAdapter;
+import com.pitonneux.les_pitonneux.QueryUtils;
 
 import java.util.List;
 
@@ -28,6 +29,6 @@ public class LocalResourceLoader extends AsyncTaskLoader<List<ListItem>>{
 
     @Override
     public List<ListItem> loadInBackground() {
-        return null;
+        return QueryUtils.fetchListItemData(mUrl);
     }
 }
