@@ -199,7 +199,7 @@ public final class QueryUtils {
 
 
 //
-            Iterator<String> test = baseJsonResponse.keys();
+            Iterator<String> test = baseJsonResponse.keys();// look for keys objects in the JSON
 
             while (test.hasNext()) {
 
